@@ -1,0 +1,34 @@
+body {
+  min-height: 100vh;
+  background: linear-gradient(
+    to right,
+    rgba(225, 50, 50, 0.711),
+    rgba(28, 19, 194, 0.798)
+  );
+  color: white;
+}
+
+.task-table {
+  background: linear-gradient(
+    to left,
+    rgba(225, 50, 50, 0.386),
+    rgba(28, 19, 194, 0.798)
+  );
+  /* background: rgba(7, 60, 221, 0.916); */
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.1rem 0.5rem rgb(0, 0, 0.1);
+  color: white;
+}
+
+h2 {
+  color: rgb(238, 54, 54);
+}
+
+.table {
+  color: white;
+}
+
+.entry-list {
+  color: rgb(94, 239, 94);
+}
