@@ -20,3 +20,19 @@
 
 //////////////////SWITCHING DATA FROM ENTRY TO BAD/////////////
 // 1.create a switchHandler which will be triggered onced the arrow button is clicked which will take the index of the clicked item as parameter.
+
+
+
+
+///////////////Branching GitHub/////////
+//git branch to see the branches
+//git remote -v to see the connection of the main branch
+//git pull to update the changes
+//git branch v2 to make the copy of the brach
+//git checkout v2 to switch to the new branch
+//git add .
+//git commit -m""
+//git push -u v2
+
+//git merge v2 to update the changes in main branches in local 
+//git push to make the chages in the github/server
