@@ -1,0 +1,22 @@
+// 1. Initially  create 2 empty ARRAYS for ENTRYLIST and BADLIST
+// 2.Then, grab the value user INPUT in the form on SUBMIT inorder to DISPLAY it on ENTRYLIST
+// i. to grab the form use FormData() and use the submit handler in html form element
+// ii. get the INDIVIDUAL INPUT frrm the form by providing names to the html element and use .get() method of FormData
+// iii. give properties to the values and CREATE OBJECT and then push the object to the ENTRYLIST
+// iv. Inorder to DISPLAY the input data create one display function and execute it on submitHandler
+
+///////////////DISPLAYING ITEM//////////////
+// 1. write a display function that takes inputArray
+// 2. inside the function create a empty string, loop through the inputArray with parameters (items,i) where i stands forn index of the element using map and use backticks with the new elements.
+// 3. at last insert the new string to the html element of entryList.
+
+///////////////DELETING ENTRY ITEMS///////////
+
+// i is the index of the item clicked and index is the index of the entry list array and it will check the condition for true
+// 1.create a deleteHandler which will be triggered onced the delete button isn clicked which will take the index of the clicked item as parameter.
+// 2. create a filtered array from the entryArray which will check the index of the entryList and index of the clicked element and if it will give out the ones which indexes doesn't match
+// new entry list will be the filtered arry
+// call the function with the new entryList
+
+//////////////////SWITCHING DATA FROM ENTRY TO BAD/////////////
+// 1.create a switchHandler which will be triggered onced the arrow button is clicked which will take the index of the clicked item as parameter.

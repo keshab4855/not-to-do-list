@@ -1,5 +1,6 @@
-let entryList = [{ task: "tv tv tv", hr: 33 }];
+let entryList = [];
 let badList = [];
+const weekHours = 7 * 24;
 
 // Get the data on form submit
 const handleOnSubmit = (e) => {
@@ -8,12 +9,21 @@ const handleOnSubmit = (e) => {
   // FormData helps to use the method from the API like get() in the browser
   const formDt = new FormData(e);
   const task = formDt.get("task");
-  const hr = formDt.get("hr");
+  // + is used to convert string to number
+  const hr = +formDt.get("hr");
   const obj = {
     task,
     hr,
   };
+  // are we allow to add new entry
+  let ttlHrs = getTotalHours();
+  console.log(ttlHrs);
+
+  if (ttlHrs + hr > weekHours) {
+    return alert("You have exceeded the weekly hours, cannot add more");
+  }
   entryList.push(obj);
+
   display(entryList);
 };
 
@@ -36,9 +46,11 @@ const display = (taskArg) => {
  </tr>
                             `;
   });
-  document.getElementById("entryList").innerHTML = str;
-};
 
+  document.getElementById("entryList").innerHTML = str;
+  getTotalHours();
+};
+// display(entryList);
 // display badlist on the DOM
 const badListDisplay = (arg) => {
   let str = "";
@@ -60,6 +72,8 @@ const badListDisplay = (arg) => {
                             `;
   });
   document.getElementById("badList").innerHTML = str;
+  badTotalHours();
+  getTotalHours();
 };
 
 // delete item from the list
@@ -79,8 +93,6 @@ const handleOnDeleteBad = (i) => {
   badListDisplay(badList);
 };
 
-display(entryList);
-
 // switch data from entry list to the bad list
 const switchToBadList = (i) => {
   const itemToBeSwitched = entryList.splice(i, 1);
@@ -96,4 +108,17 @@ const switchToEntryList = (i) => {
   entryList.push(itemToBeSwitched[0]);
   display(entryList);
   badListDisplay(badList);
+};
+
+const getTotalHours = () => {
+  const ttlEntryList = entryList.reduce((acc, item) => acc + item.hr, 0);
+  const ttlBadList = badList.reduce((acc, item) => acc + item.hr, 0);
+  const total = ttlEntryList + ttlBadList;
+  document.getElementById("totalHours").innerText = total;
+  return total;
+};
+
+const badTotalHours = () => {
+  const ttlBadList = badList.reduce((acc, item) => acc + item.hr, 0);
+  document.getElementById("badTotalHours").innerText = ttlBadList;
 };
